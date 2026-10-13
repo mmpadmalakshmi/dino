@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Dino Run | Arcade Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <main class="game-container">
+    <header class="game-header">
+      <div class="logo-area">
+        <span class="pixel-icon">🦖</span>
+        <h1 class="game-title">CHRONO DINO</h1>
+      </div>
+      <div class="score-board">
+        <div class="score-item">
+          <span class="label">HI</span>
+          <span id="highScore" class="value">00000</span>
+        </div>
+        <div class="score-item current">
+          <span class="label">SCORE</span>
+          <span id="currentScore" class="value">00000</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="900" height="320"></canvas>
+
+      <!-- Start Overlay -->
+      <div id="startOverlay" class="overlay active">
+        <div class="overlay-card">
+          <div class="dino-avatar">🦖</div>
+          <h2>READY TO RUN?</h2>
+          <p>Dodge obstacles, grab power-ups, and survive the run.</p>
+          <div class="controls-hint">
+            <span class="key-badge">SPACE</span> or <span class="key-badge">▲</span> to Jump &bull;
+            <span class="key-badge">▼</span> to Duck
+          </div>
+          <button id="startBtn" class="btn-play">START GAME</button>
+        </div>
+      </div>
+
+      <!-- Game Over Overlay -->
+      <div id="gameOverOverlay" class="overlay">
+        <div class="overlay-card game-over-card">
+          <span class="badge-skull">💀</span>
+          <h2>GAME OVER</h2>
+          <p id="gameOverSummary">You survived for 0 seconds!</p>
+          <div class="game-over-stats">
+            <div>
+              <span>SCORE</span>
+              <strong id="finalScore">0</strong>
+            </div>
+            <div>
+              <span>BEST</span>
+              <strong id="finalBest">0</strong>
+            </div>
+          </div>
+          <button id="restartBtn" class="btn-play">PLAY AGAIN (SPACE)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile & Touch Controls -->
+    <div class="touch-controls">
+      <button id="touchDuckBtn" class="touch-btn" aria-label="Duck">
+        <span>▼</span> DUCK
+      </button>
+      <button id="touchJumpBtn" class="touch-btn primary" aria-label="Jump">
+        <span>▲</span> JUMP
+      </button>
+    </div>
+
+    <footer class="game-footer">
+      <div class="footer-tips">
+        <span>⚡ <strong>Tip:</strong> Press down arrow to fall faster or duck under flying pterodactyls!</span>
+      </div>
+      <div class="sound-toggle">
+        <button id="soundToggleBtn" class="btn-icon" title="Toggle Sound">🔊 Audio: ON</button>
+      </div>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
